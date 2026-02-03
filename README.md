@@ -70,9 +70,8 @@ nawigacja/
 │   │   └── app.js             # Logika frontendowa
 │   ├── floorplan.geojson      # Mapa poziomu -1
 │   └── floorplan_0.geojson    # Mapa parteru
-├── templates/
-│   └── index.html             # Szablon HTML
-└── model_budynku.gpkg         # Model 3D budynku (GeoPackage)
+└── templates/
+    └── index.html             # Szablon HTML
 ```
 
 ## Autor
