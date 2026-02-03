@@ -206,11 +206,11 @@ def get_route():
             return jsonify({"error": "Nie znaleziono trasy między wybranymi punktami."}), 404
 
     except Exception as e:
-        print(f"SQL Error: {e}")
         return jsonify({"error": str(e)}), 500
     finally:
         if cur: cur.close()
         connection_pool.putconn(conn)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    # Dla produkcji ustaw debug=False
+    app.run(debug=False, port=5001)
