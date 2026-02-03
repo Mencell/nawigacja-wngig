@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nawigacja WNGIG</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js"></script>
+    <script src="https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h2>Nawigacja WNGIG</h2>
+        </div>
+        <div class="sidebar-content">
+            <div class="control-group">
+                <label for="start-point-input">Punkt startowy</label>
+                <div class="custom-select-wrapper" id="start-select-wrapper">
+                    <input type="text" id="start-point-input" class="search-input" placeholder="Wybierz lub wyszukaj..."
+                        autocomplete="off">
+                    <input type="hidden" id="start-point">
+                    <div class="options-list" id="start-options"></div>
+                </div>
+            </div>
+
+            <div class="swap-button-wrapper">
+                <button id="swap-button" title="Zamień punkty miejscami">↑↓</button>
+            </div>
+
+            <div class="control-group">
+                <label for="end-point-input">Punkt końcowy</label>
+                <div class="custom-select-wrapper" id="end-select-wrapper">
+                    <input type="text" id="end-point-input" class="search-input" placeholder="Wybierz lub wyszukaj..."
+                        autocomplete="off">
+                    <input type="hidden" id="end-point">
+                    <div class="options-list" id="end-options"></div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="avoid-stairs">
+                <label for="avoid-stairs">Unikaj schodów</label>
+            </div>
+
+            <button id="route-button">Wyznacz trasę</button>
+            <button id="clear-route-button" style="display: none;">Wyczyść trasę</button>
+
+            <div id="route-info"></div>
+        </div>
+    </div>
+
+    <button id="menu-toggle">☰</button>
+
+    <div id="map"></div>
+
+    <div id="floor-control">
+        <button class="floor-btn" onclick="changeFloor(0)" id="btn-0" title="Parter">0</button>
+        <button class="floor-btn" onclick="changeFloor(-1)" id="btn--1" title="Poziom -1">-1</button>
+    </div>
+
+
+
+    <div id="qr-overlay">
+        <div id="qr-reader"></div>
+        <button class="close-qr-btn" onclick="stopQrScanner()">Anuluj</button>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
