@@ -9,9 +9,10 @@ app = Flask(__name__)
 CORS(app)
 
 # Konfiguracja bazy danych
+# UWAGA: Dostosuj parametry do swojego środowiska
 DB_CONFIG = {
     "dbname": "nawigacja_v3",
-    "user": "jakubmencel",
+    "user": "postgres",
     "password": "",
     "host": "localhost",
     "port": "5432"
@@ -20,10 +21,8 @@ DB_CONFIG = {
 
 try:
     connection_pool = pool.SimpleConnectionPool(1, 10, **DB_CONFIG)
-    if connection_pool:
-        print("Pula połączeń utworzona pomyślnie")
 except (Exception, psycopg2.DatabaseError) as error:
-    print("Błąd podczas tworzenia puli połączeń PostgreSQL", error)
+    print(f"Błąd połączenia z bazą danych: {error}")
 
 def get_db_connection():
     """Pobiera połączenie z puli."""
