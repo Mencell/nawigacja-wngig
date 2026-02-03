@@ -19,7 +19,7 @@ System nawigacji wewnętrznej dla budynku Wydziału Nauk Geograficznych i Geolog
 
 - Interaktywna mapa budynku (2 piętra: parter i poziom -1)
 - Wyznaczanie najkrótszej trasy między punktami
-- ♿ Opcja unikania schodów (dla osób z niepełnosprawnościami)
+- Opcja unikania schodów (dla osób z niepełnosprawnościami)
 - Skanowanie kodów QR do szybkiego wyboru punktu startowego
 - Nawigacja wielopiętrowa
 - Kliknięcie na mapie do wyboru punktu
