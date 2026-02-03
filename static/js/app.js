@@ -316,7 +316,7 @@ function loadFloorplan() {
                 }, 200);
             }
         })
-        .catch(e => console.log("Brak pliku floorplan: " + filename));
+        .catch(() => {});
 }
 
 // --- POBIERANIE DANYCH I BUDOWANIE DROPDOWNÓW ---
